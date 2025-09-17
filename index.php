@@ -3,18 +3,18 @@
 
 // The questions and answers are stored here, securely on the server.
 $questions = [
-[
-    'id' => 1,
-    'type' => 'multiple',
-    'q' => 'What is a correct syntax to output "Hi Programming 1" in C?',
-    'choices' => [
-        "A. cout << \"Hi Programming 1\";",
-        "B. System.out.printline(\"Hi Programming 1\");",
-        "C. printf(\"Hi Programming 1\");",
-        "D. Console.WriteLine(\"Hi Programming 1\");"
+    [
+        'id' => 1,
+        'type' => 'multiple',
+        'q' => 'What is a correct syntax to output "Hi Programming 1" in C?',
+        'choices' => [
+            "A. cout << \"Hi Programming 1\";",
+            "B. System.out.printline(\"Hi Programming 1\");",
+            "C. printf(\"Hi Programming 1\");",
+            "D. Console.WriteLine(\"Hi Programming 1\");"
+        ],
+        'answer' => 'C. printf("Hi Programming 1");'
     ],
-    'answer' => 'C. printf("Hi Programming 1");'
-],
     [
         'id' => 2,
         'type' => 'fill',
@@ -43,7 +43,7 @@ $questions = [
             "C. num = 5;",
             "D. int num = 5;"
         ],
-         'answer' => 'D. int num = 5;'
+        'answer' => 'D. int num = 5;'
     ],
     [
         'id' => 6,
@@ -55,7 +55,7 @@ $questions = [
             "C. num = 2.8 double;",
             "D. num = 2.8 float;"
         ],
-         'answer' => 'B. float num = 2.8;'
+        'answer' => 'B. float num = 2.8;'
     ],
     [
         'id' => 7,
@@ -67,7 +67,7 @@ $questions = [
             "C. The & sign",
             "D. The + sign"
         ],
-         'answer' => 'D. The + sign'
+        'answer' => 'D. The + sign'
     ],
     [
         'id' => 8,
@@ -79,7 +79,7 @@ $questions = [
             "C. printword()",
             "D. write()"
         ],
-         'answer' => 'A. printf()'
+        'answer' => 'A. printf()'
     ],
     [
         'id' => 9,
@@ -91,7 +91,7 @@ $questions = [
             "C. %d",
             "D. %f"
         ],
-         'answer' => 'C. %d'
+        'answer' => 'C. %d'
     ],
     [
         'id' => 10,
@@ -103,7 +103,7 @@ $questions = [
             "C. ><",
             "D. ="
         ],
-         'answer' => 'A. =='
+        'answer' => 'A. =='
     ],
     // Add more questions here. They will be safe on the server.
 ];
@@ -177,6 +177,25 @@ if (isset($_GET['action'])) {
             } else {
                 echo json_encode(['error' => 'Question not found.']);
             }
+            exit;
+
+        case 'saveResult':
+            // This is the new action to save the quiz results
+            $data = json_decode(file_get_contents('php://input'), true);
+            $name = $data['name'] ?? 'Anonymous';
+            $score = $data['score'] ?? 0;
+            $total = $data['total'] ?? 0;
+            $time = $data['time'] ?? 'N/A';
+            $date = date('Y-m-d H:i:s');
+
+            // Format the result string
+            $result_line = "Date: $date | Name: $name | Score: $score/$total | Time: $time\n";
+
+            // Save the result to a file (quiz_results.txt)
+            $file_path = 'quiz_results.txt';
+            file_put_contents($file_path, $result_line, FILE_APPEND | LOCK_EX);
+
+            echo json_encode(['status' => 'success', 'message' => 'Result saved successfully.']);
             exit;
     }
 }
@@ -379,6 +398,7 @@ if (isset($_GET['action'])) {
             scoreList.innerHTML = scores.map(s => `<li>${s.name} on ${s.date} — ${s.score}/${s.total} - Time: ${s.time}</li>`).join('');
         }
 
+        // This is now for local storage only, and no longer sends to the server.
         function saveScore(score, total, time) {
             const scores = JSON.parse(localStorage.getItem('quizScores') || '[]');
             const now = new Date().toLocaleString();
@@ -496,6 +516,29 @@ if (isset($_GET['action'])) {
             cEl.innerHTML = "";
             rEl.innerHTML = `Your score: ${score} / ${currentQuestion.total_questions}<br>Total time: ${formattedTime}`;
             tEl.style.display = 'none';
+            
+            // Send the results to the server
+            fetch('?action=saveResult', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: studentName,
+                    score: score,
+                    total: currentQuestion.total_questions,
+                    time: formattedTime
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Server response:', data);
+            })
+            .catch(error => {
+                console.error('Error saving result:', error);
+            });
+
+            // Save score to local storage for scoreboard display
             saveScore(score, currentQuestion.total_questions, formattedTime);
             loadScoreboard();
         }
