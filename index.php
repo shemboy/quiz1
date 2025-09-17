@@ -105,6 +105,60 @@ $questions = [
         ],
         'answer' => 'A. =='
     ],
+    [
+        'id' => 11,
+        'type' => 'multiple',
+        'q' => 'Which operator can be used to find the memory size (in bytes) of a data type or variable?',
+        'choices' => [
+            "A. The length property",
+            "B. The sizeof property",
+            "C. The len property",
+            "D. The sizer property"
+        ],
+        'answer' => 'B. The sizeof property'
+    ],
+    [
+        'id' => 12,
+        'type' => 'multiple',
+        'q' => 'Which keyword can be used to make a variable unchangeable/read-only?',
+        'choices' => [
+            "A. const",
+            "B. final",
+            "C. constant",
+            "D. readonly"
+        ],
+        'answer' => 'A. const'
+    ],
+    [
+        'id' => 13,
+        'type' => 'multiple',
+        'q' => 'What do we call the following? int myNumbers[] = {25, 50, 75, 100};',
+        'choices' => [
+            "A. None of the above",
+            "B. A class",
+            "C. An array",
+            "D. A pointer"
+        ],
+        'answer' => 'C. An array'
+    ],
+    [
+        'id' => 14,
+        'type' => 'multiple',
+        'q' => 'Array indexes start with:',
+        'choices' => [
+            "A. 1",
+            "B. 0",
+            "C. -1",
+            "D. 10"
+        ],
+        'answer' => 'B. 0'
+    ],
+    [
+        'id' => 15,
+        'type' => 'fill',
+        'q' => 'Array indexes start with?',
+        'answer' => '0'
+    ],
     // Add more questions here. They will be safe on the server.
 ];
 
