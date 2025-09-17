@@ -8,12 +8,12 @@ $questions = [
         'type' => 'multiple',
         'q' => 'What is a correct syntax to output "Hello World" in C?',
         'choices' => [
-            "A. cout << "Hello World" ",
+            "A. cout << \"Hello World\" ",
             "B. System.out.prin",
-            "C. print",
+            "C. printf",
             "D. Console.Wr"
         ],
-        'answer' => 'C. Basic firewall disabled by default'
+        'answer' => 'C. printf'
     ],
     [
         'id' => 2,
