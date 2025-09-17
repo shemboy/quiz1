@@ -25,22 +25,6 @@ $questions = [
         'correct_answer' => 'A. Security Center'
     ],
     // Add more questions here
-    [
-        'id' => 4,
-        'question_text' => '3. 1)?',
-        'choices' => ['A. Security Center', 'B. BitLocker', 'C. User Account Control (UAC)'],
-        'correct_answer' => 'A. Security Center'
-    ],
-
-    [
-        'id' => 5,
-        'question_text' => '3. 1)?',
-        'choices' => ['A. Security Center', 'B. BitLocker', 'C. User Account Control (UAC)'],
-        'correct_answer' => 'A. Security Center'
-    ]
-
-
-
 
 
 
