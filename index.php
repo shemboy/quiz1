@@ -19,7 +19,7 @@ $questions = [
         'id' => 2,
         'type' => 'fill',
         'q' => 'How do you insert COMMENTS in C code?',
-        'answer' => '//' or '// This is a comment'
+        'answer' => '//'
     ],
     [
         'id' => 3,
