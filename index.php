@@ -6,205 +6,128 @@ $questions = [
     [
         'id' => 1,
         'type' => 'multiple',
-        'q' => 'What is a correct syntax to output "Hi Programming 1" in C?',
+        'q' => 'Which feature in Windows Security helps protect your device from malware and other threats?',
         'choices' => [
-            "A. cout << \"Hi Programming 1\";",
-            "B. System.out.printline(\"Hi Programming 1\");",
-            "C. printf(\"Hi Programming 1\");",
-            "D. Console.WriteLine(\"Hi Programming 1\");"
+            "A. Windows Defender Antivirus",
+            "B. File Explorer",
+            "C. Task Scheduler",
+            "D. Paint"
         ],
-        'answer' => 'C. printf("Hi Programming 1");'
+        'answer' => 'A. Windows Defender Antivirus'
     ],
     [
         'id' => 2,
-        'type' => 'fill',
-        'q' => 'How do you insert COMMENTS in C code?',
-        'answer' => '//'
+        'type' => 'multiple',
+        'q' => 'What is the purpose of Windows Firewall?',
+        'choices' => [
+            "A. To speed up internet browsing",
+            "B. To block unauthorized network traffic",
+            "C. To manage system updates",
+            "D. To clean temporary files"
+        ],
+        'answer' => 'B. To block unauthorized network traffic'
     ],
     [
         'id' => 3,
-        'type' => 'truefalse',
-        'q' => 'When a variable is created in C, a memory address is assigned to the variable.',
-        'answer' => 'True'
+        'type' => 'multiple',
+        'q' => 'Which Windows Security feature allows users to securely store login credentials?',
+        'choices' => [
+            "A. BitLocker",
+            "B. Windows Hello",
+            "C. Credential Manager",
+            "D. OneDrive"
+        ],
+        'answer' => 'C. Credential Manager'
     ],
     [
         'id' => 4,
-        'type' => 'truefalse',
-        'q' => 'In C, code statements must end with a semicolon (;)',
-        'answer' => 'True'
+        'type' => 'multiple',
+        'q' => 'What does BitLocker do?',
+        'choices' => [
+            "A. Encrypts entire drives",
+            "B. Deletes unused files",
+            "C. Creates system restore points",
+            "D. Installs security patches"
+        ],
+        'answer' => 'A. Encrypts entire drives'
     ],
     [
         'id' => 5,
         'type' => 'multiple',
-        'q' => 'How can you create a variable with the numeric value 5?',
+        'q' => 'Controlled Folder Access in Windows Security is mainly designed to:',
         'choices' => [
-            "A. val num = 5;",
-            "B. num = 5 int;",
-            "C. num = 5;",
-            "D. int num = 5;"
+            "A. Prevent ransomware from changing files",
+            "B. Block Wi-Fi access",
+            "C. Speed up system boot time",
+            "D. Disable Cortana"
         ],
-        'answer' => 'D. int num = 5;'
+        'answer' => 'A. Prevent ransomware from changing files'
     ],
     [
         'id' => 6,
-        'type' => 'multiple',
-        'q' => 'How can you create a variable with the floating number 2.8?',
-        'choices' => [
-            "A. val num = 2.8;",
-            "B. float num = 2.8;",
-            "C. num = 2.8 double;",
-            "D. num = 2.8 float;"
-        ],
-        'answer' => 'B. float num = 2.8;'
+        'type' => 'truefalse',
+        'q' => 'Granular control configures only the outbound rules for applications and ports.',
+        'answer' => 'False'
     ],
     [
         'id' => 7,
-        'type' => 'multiple',
-        'q' => 'Which operator is used to add together two values?',
-        'choices' => [
-            "A. The * sign",
-            "B. The ADD keyword",
-            "C. The & sign",
-            "D. The + sign"
-        ],
-        'answer' => 'D. The + sign'
+        'type' => 'truefalse',
+        'q' => 'Zoned-Based security defines network zones without varying levels of trust and applies appropriate firewall policies.',
+        'answer' => 'False'
     ],
     [
         'id' => 8,
-        'type' => 'multiple',
-        'q' => 'Which function is often used to output values and display text?',
-        'choices' => [
-            "A. printf()",
-            "B. output()",
-            "C. printword()",
-            "D. write()"
-        ],
-        'answer' => 'A. printf()'
+        'type' => 'truefalse',
+        'q' => 'Windows Defender controls the incoming and outgoing network traffic.',
+        'answer' => 'False'
     ],
     [
         'id' => 9,
-        'type' => 'multiple',
-        'q' => 'Which format specifier is often used to print integers?',
-        'choices' => [
-            "A. %s",
-            "B. %c",
-            "C. %d",
-            "D. %f"
-        ],
-        'answer' => 'C. %d'
+        'type' => 'truefalse',
+        'q' => 'The role of OS HARDENING is to disable unnecessary services and restrict administrative privileges.',
+        'answer' => 'True'
     ],
     [
         'id' => 10,
-        'type' => 'multiple',
-        'q' => 'Which operator can be used to compare two values?',
-        'choices' => [
-            "A. ==",
-            "B. <>",
-            "C. ><",
-            "D. ="
-        ],
-        'answer' => 'A. =='
+        'type' => 'truefalse',
+        'q' => 'Monitoring file and folder access is one of the benefits of Group Policy Objects.',
+        'answer' => 'False'
     ],
     [
         'id' => 11,
-        'type' => 'multiple',
-        'q' => 'Which operator can be used to find the memory size (in bytes) of a data type or variable?',
-        'choices' => [
-            "A. The length property",
-            "B. The sizeof property",
-            "C. The len property",
-            "D. The sizer property"
-        ],
-        'answer' => 'B. The sizeof property'
+        'type' => 'fill',
+        'q' => '2.What is the purpose of Windows Firewall?',
+        'answer' => '//'
+    ],
+    [
+        'id' => 11,
+        'type' => 'identification',
+        'q' => 'A file-level encryption for specific sensitive files and folders, adding an extra layer of protection.',
+        'answer' => 'Encrypting File System'
     ],
     [
         'id' => 12,
-        'type' => 'multiple',
-        'q' => 'Which keyword can be used to make a variable unchangeable/read-only?',
-        'choices' => [
-            "A. const",
-            "B. final",
-            "C. constant",
-            "D. readonly"
-        ],
-        'answer' => 'A. const'
+        'type' => 'identification',
+        'q' => 'It provides a centralized way to manage security settings across an entire Windows domain.',
+        'answer' => 'Group Policy Object'
     ],
     [
         'id' => 13,
-        'type' => 'multiple',
-        'q' => 'What do we call the following? int myNumbers[] = {25, 50, 75, 100};',
-        'choices' => [
-            "A. None of the above",
-            "B. A class",
-            "C. An array",
-            "D. A pointer"
-        ],
-        'answer' => 'C. An array'
+        'type' => 'identification',
+        'q' => 'Implement a consistent schedule for applying Windows security updates.',
+        'answer' => 'Regular Updates'
     ],
     [
         'id' => 14,
-        'type' => 'multiple',
-        'q' => 'Array indexes start with:',
-        'choices' => [
-            "A. 1",
-            "B. 0",
-            "C. -1",
-            "D. 10"
-        ],
-        'answer' => 'B. 0'
+        'type' => 'identification',
+        'q' => 'Utilizes tools like WSUS or SCCM for efficient patch distribution.',
+        'answer' => 'Automated Deployment'
     ],
     [
         'id' => 15,
-        'type' => 'fill',
-        'q' => 'Array indexes start with?',
-        'answer' => '0'
-    ],
-    [
-        'id' => 16,
-        'type' => 'multiple',
-        'q' => 'What does the \n character do in a C program?',
-        'choices' => [
-            "A. It creates a new line",
-            "B. It creates a space",
-            "C. It creates a tab",
-            "D. It creates a backslash"
-        ],
-        'answer' => 'A. It creates a new line'
-    ],
-    [
-        'id' => 17,
-        'type' => 'fill',
-        'q' => 'What is the code output?
-        printf("Hello World! I am learning C.");',
-        'answer' => 'Hello World! I am learning C.'
-    ],
-    [
-        'id' => 18,
-        'type' => 'multiple',
-        'q' => 'Which data type is used to store integers (whole numbers) in C?',
-        'choices' => [
-            "A. char",
-            "B. float",
-            "C. int",
-            "D. double"
-        ],
-        'answer' => 'C. int'
-    ],
-    [
-        'id' => 19,
-        'type' => 'fill',
-        'q' => 'Use the correct format specifier to output the value of myNum: 
-            int myNum = 15;
-            printf(" ", myNum);',
-        'answer' => '%d'
-    ],
-    [
-        'id' => 20,
-        'type' => 'fill',
-        'q' => 'What is the following code output?
-        int myNum = 15;
-        printf("%d", myNum);',
-        'answer' => '15'
+        'type' => 'identification',
+        'q' => 'An access management that is enforced via group membership.',
+        'answer' => 'Access Permission'
     ],
     // Add more questions here. They will be safe on the server.
 ];
