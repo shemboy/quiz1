@@ -6,12 +6,12 @@ $questions = [
     [
         'id' => 1,
         'type' => 'multiple',
-        'q' => '1. What was the state of the firewall in Windows XP when it was released in 2001?',
+        'q' => 'What is a correct syntax to output "Hello World" in C?',
         'choices' => [
-            "A. Advanced firewall enabled by default ",
-            "B. No firewall included ",
-            "C. Basic firewall disabled by default",
-            "D. Firewall with real-time protection"
+            "A. cout << "Hello World"",
+            "B. System.out.printline("Hello World");",
+            "C. print("Hello World");",
+            "D. Console.WriteLine("Hello World");"
         ],
         'answer' => 'C. Basic firewall disabled by default'
     ],
@@ -259,7 +259,7 @@ if (isset($_GET['action'])) {
     <div class="container" id="quiz-app">
         <div id="welcomeScreen">
             <p>Please enter your name to start the quiz:</p>
-            <input type="text" id="nameInput" placeholder="Enter your Full Name" />
+            <input type="text" id="nameInput" placeholder="Enter your name" />
             <button id="startBtn" class="primary-btn">▶️ Start Quiz</button>
         </div>
         
@@ -426,4 +426,3 @@ if (isset($_GET['action'])) {
     </script>
 </body>
 </html>
-
