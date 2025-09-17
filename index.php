@@ -8,10 +8,10 @@ $questions = [
         'type' => 'multiple',
         'q' => 'What is a correct syntax to output "Hello World" in C?',
         'choices' => [
-            "A. cout << "Hello World"",
-            "B. System.out.printline("Hello World");",
-            "C. print("Hello World");",
-            "D. Console.WriteLine("Hello World");"
+            "A. cout << ",
+            "B. System.out.prin",
+            "C. print",
+            "D. Console.Wr"
         ],
         'answer' => 'C. Basic firewall disabled by default'
     ],
