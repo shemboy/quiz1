@@ -13,7 +13,7 @@ $questions = [
             "C. printf(\"Hi Programming 1\");",
             "D. Console.WriteLine(\"Hi Programming 1\");"
         ],
-         'answer' => 'C. printf("Hello World");'
+         'answer' => 'C. printf(\"Hello World\");'
     ],
     [
         'id' => 2,
