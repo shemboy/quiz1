@@ -6,20 +6,20 @@ $questions = [
     [
         'id' => 1,
         'type' => 'multiple',
-        'q' => 'What is a correct syntax to output "Hello World" in C?',
+        'q' => 'What is a correct syntax to output "Hi Programming 1" in C?',
         'choices' => [
-            "A. cout << \"Hello World\" ",
-            "B. System.out.prin",
-            "C. printf",
-            "D. Console.Wr"
+            "A. cout << \"Hi Programming 1\";",
+            "B. System.out.printline(\"Hi Programming 1\");",
+            "C. printf(\"Hi Programming 1\");",
+            "D. Console.WriteLine(\"Hi Programming 1\");"
         ],
-        'answer' => 'C. printf'
+         'answer' => 'C. printf("Hello World");'
     ],
     [
         'id' => 2,
         'type' => 'fill',
-        'q' => 'Fill in the blank: The keyword to declare a constant is ____.',
-        'answer' => 'const'
+        'q' => 'How do you insert COMMENTS in C code?',
+        'answer' => '//' or '// This is a comment'
     ],
     [
         'id' => 3,
