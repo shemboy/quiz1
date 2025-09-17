@@ -24,9 +24,87 @@ $questions = [
     [
         'id' => 3,
         'type' => 'truefalse',
-        'q' => '18. TPM 2.0 is a requirement for Windows 11 security features.',
+        'q' => 'When a variable is created in C, a memory address is assigned to the variable.',
         'answer' => 'True'
-    ]
+    ],
+    [
+        'id' => 4,
+        'type' => 'truefalse',
+        'q' => 'In C, code statements must end with a semicolon (;)',
+        'answer' => 'True'
+    ],
+    [
+        'id' => 5,
+        'type' => 'multiple',
+        'q' => 'How can you create a variable with the numeric value 5?',
+        'choices' => [
+            "A. val num = 5;",
+            "B. num = 5 int;",
+            "C. num = 5;",
+            "D. int num = 5;"
+        ],
+         'answer' => 'D. int num =5;'
+    ],
+    [
+        'id' => 6,
+        'type' => 'multiple',
+        'q' => 'How can you create a variable with the floating number 2.8?',
+        'choices' => [
+            "A. val num = 2.8;",
+            "B. float num = 2.8;",
+            "C. num = 2.8 double;",
+            "D. num = 2.8 float;"
+        ],
+         'answer' => 'B. float num = 2.8'
+    ],
+    [
+        'id' => 7,
+        'type' => 'multiple',
+        'q' => 'Which operator is used to add together two values?',
+        'choices' => [
+            "A. The * sign",
+            "B. The ADD keyword",
+            "C. The & sign",
+            "D. The + sign"
+        ],
+         'answer' => 'D. The + sign'
+    ],
+    [
+        'id' => 8,
+        'type' => 'multiple',
+        'q' => 'Which function is often used to output values and display text?',
+        'choices' => [
+            "A. printf()",
+            "B. output()",
+            "C. printword()",
+            "D. write()"
+        ],
+         'answer' => 'A. printf()'
+    ],
+    [
+        'id' => 9,
+        'type' => 'multiple',
+        'q' => 'Which format specifier is often used to print integers?',
+        'choices' => [
+            "A. %s",
+            "B. %c",
+            "C. %d",
+            "D. %f"
+        ],
+         'answer' => 'C. %d'
+    ],
+    [
+        'id' => 10,
+        'type' => 'multiple',
+        'q' => 'Which operator can be used to compare two values?',
+        'choices' => [
+            "A. ==",
+            "B. <>",
+            "C. ><",
+            "D. ="
+        ],
+         'answer' => 'A. =='
+    ],
     // Add more questions here. They will be safe on the server.
 ];
 
