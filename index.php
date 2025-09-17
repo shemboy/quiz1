@@ -96,36 +96,30 @@ $questions = [
     [
         'id' => 11,
         'type' => 'fill',
-        'q' => '2.What is the purpose of Windows Firewall?',
-        'answer' => '//'
-    ],
-    [
-        'id' => 11,
-        'type' => 'identification',
         'q' => 'A file-level encryption for specific sensitive files and folders, adding an extra layer of protection.',
         'answer' => 'Encrypting File System'
     ],
     [
         'id' => 12,
-        'type' => 'identification',
+        'type' => 'fill',
         'q' => 'It provides a centralized way to manage security settings across an entire Windows domain.',
         'answer' => 'Group Policy Object'
     ],
     [
         'id' => 13,
-        'type' => 'identification',
+        'type' => 'fill',
         'q' => 'Implement a consistent schedule for applying Windows security updates.',
         'answer' => 'Regular Updates'
     ],
     [
         'id' => 14,
-        'type' => 'identification',
+        'type' => 'fill',
         'q' => 'Utilizes tools like WSUS or SCCM for efficient patch distribution.',
         'answer' => 'Automated Deployment'
     ],
     [
         'id' => 15,
-        'type' => 'identification',
+        'type' => 'fill',
         'q' => 'An access management that is enforced via group membership.',
         'answer' => 'Access Permission'
     ],
