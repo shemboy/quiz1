@@ -43,7 +43,7 @@ $questions = [
             "C. num = 5;",
             "D. int num = 5;"
         ],
-         'answer' => 'D. int num =5;'
+         'answer' => 'D. int num = 5;'
     ],
     [
         'id' => 6,
