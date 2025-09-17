@@ -159,6 +159,53 @@ $questions = [
         'q' => 'Array indexes start with?',
         'answer' => '0'
     ],
+    [
+        'id' => 16,
+        'type' => 'multiple',
+        'q' => 'What does the \n character do in a C program?',
+        'choices' => [
+            "A. It creates a new line",
+            "B. It creates a space",
+            "C. It creates a tab",
+            "D. It creates a backslash"
+        ],
+        'answer' => 'A. It creates a new line'
+    ],
+    [
+        'id' => 17,
+        'type' => 'fill',
+        'q' => 'What is the code output?
+        printf("Hello World! I am learning C.");',
+        'answer' => 'Hello World! I am learning C.'
+    ],
+    [
+        'id' => 18,
+        'type' => 'multiple',
+        'q' => 'Which data type is used to store integers (whole numbers) in C?',
+        'choices' => [
+            "A. char",
+            "B. float",
+            "C. int",
+            "D. double"
+        ],
+        'answer' => 'C. int'
+    ],
+    [
+        'id' => 19,
+        'type' => 'fill',
+        'q' => 'Use the correct format specifier to output the value of myNum: 
+            int myNum = 15;
+            printf(" ", myNum);',
+        'answer' => '%d'
+    ],
+    [
+        'id' => 20,
+        'type' => 'fill',
+        'q' => 'What is the following code output?
+        int myNum = 15;
+        printf("%d", myNum);',
+        'answer' => '15'
+    ],
     // Add more questions here. They will be safe on the server.
 ];
 
