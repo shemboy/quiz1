@@ -1,73 +1,87 @@
 <?php
-// This is the server-side code. It handles the quiz logic and is not visible to the user.
+// This is the server-side code. It is not visible to the user and handles all security.
 
 header('Content-Type: application/json');
 
 // This is where you store your questions and answers.
-// This data is secure because it stays on the server.
+// The "id" is crucial for matching questions between the client and server.
 $questions = [
     [
         'id' => 1,
-        'question_text' => '1. What was the state of the firewall in Windows XP when it was released in 2001?',
-        'choices' => ['A. Advanced firewall enabled by default', 'B. No firewall included', 'C. Basic firewall disabled by default', 'D. Firewall with real-time protection'],
-        'correct_answer' => 'C. Basic firewall disabled by default'
+        'type' => 'multiple',
+        'q' => '1. What was the state of the firewall in Windows XP when it was released in 2001?',
+        'choices' => [
+            "A. Advanced firewall enabled by default ",
+            "B. No firewall included ",
+            "C. Basic firewall disabled by default",
+            "D. Firewall with real-time protection"
+        ],
+        'answer' => 'C. Basic firewall disabled by default'
     ],
     [
         'id' => 2,
-        'question_text' => '2. Why did users of Windows XP (2001) need third-party antivirus software?',
-        'choices' => ['A. Windows XP lacked built-in antivirus protection', 'B. Windows XP was incompatible with antivirus software', 'C. Windows XP had built-in antivirus'],
-        'correct_answer' => 'A. Windows XP lacked built-in antivirus protection'
+        'type' => 'fill',
+        'q' => 'Fill in the blank: The keyword to declare a constant is ____.',
+        'answer' => 'const'
     ],
     [
         'id' => 3,
-        'question_text' => '3. Which security feature was introduced in Windows XP Service Pack 2 (2004)?',
-        'choices' => ['A. Security Center', 'B. BitLocker', 'C. User Account Control (UAC)'],
-        'correct_answer' => 'A. Security Center'
+        'type' => 'truefalse',
+        'q' => '18. TPM 2.0 is a requirement for Windows 11 security features.',
+        'answer' => 'True' // Note: Use a string for consistency
     ]
     // Add more questions here
 ];
 
-// Start a session to keep track of answered questions
+// Shuffle the questions once and store the shuffled order in the session
+// This ensures the order is the same for the entire quiz
 session_start();
+if (!isset($_SESSION['shuffled_questions'])) {
+    $_SESSION['shuffled_questions'] = $questions;
+    shuffle($_SESSION['shuffled_questions']);
+}
 
 $action = $_GET['action'] ?? '';
+$answered_count = $_SESSION['answered_count'] ?? 0;
+$total_questions = count($questions);
 
-// Handle the request from the front-end
 switch ($action) {
+    case 'start':
+        // Reset the quiz state in the session
+        $_SESSION['answered_count'] = 0;
+        $_SESSION['shuffled_questions'] = $questions;
+        shuffle($_SESSION['shuffled_questions']);
+        echo json_encode(['status' => 'ok']);
+        break;
+
     case 'getQuestion':
-        // Get the list of answered question IDs from the session
-        $answered_ids = $_SESSION['answered_ids'] ?? [];
-
-        // Find a question that hasn't been answered yet
-        $unanswered_questions = array_filter($questions, function($q) use ($answered_ids) {
-            return !in_array($q['id'], $answered_ids);
-        });
-
-        if (empty($unanswered_questions)) {
-            echo json_encode(['finished' => true]);
-            session_destroy(); // End the quiz session
-        } else {
-            // Get a random unanswered question
-            $random_question = $unanswered_questions[array_rand($unanswered_questions)];
-            
-            // Add this question's ID to the answered list
-            $_SESSION['answered_ids'][] = $random_question['id'];
-
-            // Send only the question text and choices back to the browser
-            echo json_encode([
-                'question_id' => $random_question['id'],
-                'question_text' => $random_question['question_text'],
-                'choices' => $random_question['choices']
-            ]);
+        if ($answered_count >= $total_questions) {
+            echo json_encode(['finished' => true, 'total_questions' => $total_questions]);
+            session_destroy();
+            return;
         }
+
+        $current = $_SESSION['shuffled_questions'][$answered_count];
+        
+        // Prepare data to send to the client. This is the secure part.
+        // We only send the question and choices, never the correct answer.
+        $question_data = [
+            'id' => $current['id'],
+            'type' => $current['type'],
+            'q' => $current['q'],
+            'choices' => $current['choices'] ?? [],
+            'total_questions' => $total_questions
+        ];
+        
+        echo json_encode($question_data);
         break;
 
     case 'submitAnswer':
         $data = json_decode(file_get_contents('php://input'), true);
-        $question_id = $data['question_id'];
         $user_answer = $data['user_answer'];
-
-        // Find the correct question in our secure array
+        $question_id = $data['question_id'];
+        
+        // Find the correct question in our secure, server-side array
         $question = null;
         foreach ($questions as $q) {
             if ($q['id'] == $question_id) {
@@ -76,10 +90,27 @@ switch ($action) {
             }
         }
         
-        // Check the user's answer against the correct one
-        $is_correct = ($question['correct_answer'] === $user_answer);
+        // The answer validation happens here, securely on the server
+        if ($question) {
+            $correct = false;
+            if ($question['type'] === 'fill') {
+                $correct = (strtolower($question['answer']) === strtolower($user_answer));
+            } elseif ($question['type'] === 'truefalse') {
+                $correct = (strtolower($question['answer']) === strtolower($user_answer));
+            } else { // multiple choice
+                // For multiple choice, we send the choice text back to be compared
+                $correct = ($question['answer'] === $user_answer);
+            }
+            
+            $_SESSION['answered_count'] = $answered_count + 1;
 
-        echo json_encode(['correct' => $is_correct]);
+            echo json_encode([
+                'correct' => $correct,
+                'correct_answer' => $question['answer']
+            ]);
+        } else {
+            echo json_encode(['error' => 'Question not found.']);
+        }
         break;
 
     default:
