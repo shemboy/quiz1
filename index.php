@@ -259,7 +259,7 @@ if (isset($_GET['action'])) {
     <div class="container" id="quiz-app">
         <div id="welcomeScreen">
             <p>Please enter your name to start the quiz:</p>
-            <input type="text" id="nameInput" placeholder="Enter your name" />
+            <input type="text" id="nameInput" placeholder="Enter your Full Name" />
             <button id="startBtn" class="primary-btn">▶️ Start Quiz</button>
         </div>
         
@@ -426,3 +426,4 @@ if (isset($_GET['action'])) {
     </script>
 </body>
 </html>
+
