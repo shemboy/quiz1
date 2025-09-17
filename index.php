@@ -8,7 +8,7 @@ $questions = [
         'type' => 'multiple',
         'q' => 'What is a correct syntax to output "Hello World" in C?',
         'choices' => [
-            "A. cout << ",
+            "A. cout << "Hello World" ",
             "B. System.out.prin",
             "C. print",
             "D. Console.Wr"
