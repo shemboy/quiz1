@@ -29,6 +29,12 @@ $questions = [
         'type' => 'truefalse',
         'q' => '18. TPM 2.0 is a requirement for Windows 11 security features.',
         'answer' => 'True' // Note: Use a string for consistency
+    ],
+    [
+        'id' => 4,
+        'type' => 'truefalse',
+        'q' => 'one two',
+        'answer' => 'True' // Note: Use a string for consistency
     ]
     // Add more questions here
 ];
