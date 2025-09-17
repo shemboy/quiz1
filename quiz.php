@@ -23,11 +23,8 @@ $questions = [
         'question_text' => '3. Which security feature was introduced in Windows XP Service Pack 2 (2004)?',
         'choices' => ['A. Security Center', 'B. BitLocker', 'C. User Account Control (UAC)'],
         'correct_answer' => 'A. Security Center'
-    ],
+    ]
     // Add more questions here
-
-
-
 ];
 
 // Start a session to keep track of answered questions
